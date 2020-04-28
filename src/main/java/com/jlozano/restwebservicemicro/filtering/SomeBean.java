@@ -1,8 +1,8 @@
 package com.jlozano.restwebservicemicro.filtering;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFilter;
 
-@JsonIgnoreProperties(value = {"field3"})
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
 	
 	private String field1;
