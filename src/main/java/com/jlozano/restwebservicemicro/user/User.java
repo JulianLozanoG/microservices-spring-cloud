@@ -2,6 +2,9 @@ package com.jlozano.restwebservicemicro.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -9,8 +12,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "All details about the User. ")
+@Entity
 public class User {
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Size(min=2, message = "Name shloud have at least 2 characters")
@@ -22,7 +28,10 @@ public class User {
 	private Date birthDate;
 	
 	
-	
+	public User() {
+		super();
+	}
+
 	public User(Integer id, String name, Date birthDate) {
 		super();
 		this.id = id;
